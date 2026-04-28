@@ -1,0 +1,18 @@
+version: "3.9"
+
+services:
+  db:
+    image: postgres:15
+    container_name: marketing-data-collector
+    restart: always
+    environment:
+      POSTGRES_USER: vic
+      POSTGRES_PASSWORD: marketing0711
+      POSTGRES_DB: marketing_data
+    ports:
+      - "0711:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
