@@ -1,13 +1,13 @@
 export async function fetchGoogleAds() {
     return[
         {
-            campaingId: "1234",
-            campaingName: "Prueba Campaña",
+            campaignId: "1234",
+            campaignName: "Prueba Campaña",
             date: new Date(),
-            impresions: 1100,
-            clicks: 230,
-            spend: 24.3,
-            conversions: 2
+            impressions: Math.floor(Math.random() * 1000),
+            clicks: Math.floor(Math.random() * 100),
+            spend: Math.random() * 100,
+            conversions: Math.floor(Math.random() * 20)
         }
     ];
 }

@@ -12,11 +12,11 @@ datasource db {
   url = env("DATABASE_URL")
 }
 
-model CampaingMetric{
+model CampaignMetric{
   id          Int        @id @default(autoincrement())
   platform    String
-  campaingId  String
-  campaingName String   @default("")
+  campaignId  String
+  campaignName String   @default("")
   date        DateTime
 
   impressions Int
@@ -24,7 +24,10 @@ model CampaingMetric{
   spend       Float
   conversions Int?
 
+  channel String?
+  source  String?
+
   createdAt   DateTime   @default(now())
 
-  @@unique([platform, campaingId, date])
+  @@unique([platform, campaignId, date])
 }

@@ -6,30 +6,30 @@ export async function syncGoogleAds() {
 
     const data = await fetchGoogleAds();
 
-    for (const campaing of data) {
+    for (const campaign of data) {
         try {
-            await prisma.campaingMetric.upsert({
+            await prisma.CampaignMetric.upsert({
                 where: {
-                    platform_campaingID_date:{
+                    platform_campaignId_date:{
                         platform: "google",
-                        campaingID: campaing.campaingId,
-                        date: campaing.date
+                        campaignId: campaign.campaignId,
+                        date: campaign.date
                     }
                 },
                 update: {
-                    campaingName: campaing.campaingName,
-                    impressions:  campaing.impresions,
-                    clicks: campaing.clicks,
-                    spend: campaing.spend,
-                    conversions: campaing.conversions
+                    campaignName: campaign.campaignName,
+                    impressions:  campaign.impressions,
+                    clicks: campaign.clicks,
+                    spend: campaign.spend,
+                    conversions: campaign.conversions
                 },
                 create: {
                     platform: "google",
-                    ...campaing
+                    ...campaign
                 }
             });
         } catch (err) {
-            console.error("Error al actualizar:", campaing.campaingId, err.message);
+            console.error("Error al actualizar:", campaign.campaignId, err.message);
         }
     }
     console.log("Sincronizacion completada") ;     
