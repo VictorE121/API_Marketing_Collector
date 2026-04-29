@@ -25,4 +25,6 @@ model CampaingMetric{
   conversions Int?
 
   createdAt   DateTime   @default(now())
+
+  @@unique([platform, campaingId, date])
 }
