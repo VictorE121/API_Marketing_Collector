@@ -5,17 +5,18 @@
 
 generator client {
   provider = "prisma-client-js"
-  //output   = "../src/generated/prisma"
 }
 
 datasource db {
   provider = "postgresql"
+  url = env("DATABASE_URL")
 }
 
 model CampaingMetric{
   id          Int        @id @default(autoincrement())
   platform    String
   campaingId  String
+  campaingName String   @default("")
   date        DateTime
 
   impressions Int

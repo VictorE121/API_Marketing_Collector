@@ -10,7 +10,7 @@ services:
       POSTGRES_PASSWORD: marketing0711
       POSTGRES_DB: marketing_data
     ports:
-      - "0711:5432"
+      - "1107:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
 
