@@ -1,10 +1,10 @@
 import prisma from "../config/db.js";
-import { fetchGoogleAds } from "../integrations/googleAds.js";
+import { fetchMockMarketingData } from "../integrations/googleAds.js";
 
 export async function syncGoogleAds() {
     console.log("Sincronizando Google Ads...");
 
-    const data = await fetchGoogleAds();
+    const data = fetchMockMarketingData();
 
     for (const campaign of data) {
         try {

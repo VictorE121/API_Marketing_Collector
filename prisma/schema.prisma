@@ -1,33 +1,25 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-// Get a free hosted Postgres database in seconds: `npx create-db`
-
 generator client {
   provider = "prisma-client-js"
 }
 
 datasource db {
   provider = "postgresql"
-  url = env("DATABASE_URL")
+  url      = env("DATABASE_URL")
 }
 
-model CampaignMetric{
-  id          Int        @id @default(autoincrement())
-  platform    String
-  campaignId  String
+model CampaignMetric {
+  id           Int      @id @default(autoincrement())
+  platform     String
+  campaignId   String
   campaignName String   @default("")
-  date        DateTime
-
-  impressions Int
-  clicks      Int
-  spend       Float
-  conversions Int?
-
-  channel String?
-  source  String?
-
-  createdAt   DateTime   @default(now())
+  date         DateTime
+  impressions  Int
+  clicks       Int
+  spend        Float
+  conversions  Int?
+  channel      String?
+  source       String?
+  createdAt    DateTime @default(now())
 
   @@unique([platform, campaignId, date])
 }
