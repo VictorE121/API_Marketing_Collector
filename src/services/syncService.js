@@ -6,6 +6,9 @@ export async function syncGoogleAds() {
 
     const data = fetchMockMarketingData();
 
+    console.log("DATA:", data);
+    console.log("TYPE:", typeof data);
+
     for (const campaign of data) {
         try {
             await prisma.CampaignMetric.upsert({
@@ -32,5 +35,5 @@ export async function syncGoogleAds() {
             console.error("Error al actualizar:", campaign.campaignId, err.message);
         }
     }
-    console.log("Sincronizacion completada") ;     
+    console.log("Sincronizacion completada") ;
 }

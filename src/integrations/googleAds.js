@@ -1,4 +1,4 @@
-export async function fetchGoogleAds() {
+/*export async function fetchGoogleAds() {
     return[
         {
             campaignId: "1234",
@@ -10,9 +10,9 @@ export async function fetchGoogleAds() {
             conversions: Math.floor(Math.random() * 20)
         }
     ];
-}
+}*/
 
-export async function fetchMockMarketingData() {
+export function fetchMockMarketingData() {
 
     const channels = {
         Programmatic: ["StackAdapt", "Amazon Ad Server"],
@@ -32,29 +32,34 @@ export async function fetchMockMarketingData() {
 
     for (let i=0; i < 30; i++) {
         const date = new Date();
-        date.setDate(data.getDate() - i);
-    }
+        date.setDate(date.getDate() - i);
 
-    for (const [channel, sources] of Object.entries(channels)) {
-        for (const source of sources) {
-            for (const campaign of campaigns){
-                const impressions = Math.floor(Math.random() * 8000 + 1000);
-                const clicks = Math.floor(impressions * (Math.random() * 0.1));
-                const spend = clicks * Math.floor(Math.random() * 2 + 0.5);
-                const conversions = Math.floor(clicks * (Math.random() * 0.2));
+        for (const [channel, sources] of Object.entries(channels)) {
+            for (const source of sources) {
+                for (const campaign of campaigns){
+                    
+                    const ctr = Math.random() * 0.15;
+                    const cpc = Math.random() * 2 + 0.2;
+                    const impressions = Math.floor(Math.random() * 8000 + 1000);
+                    const clicks = Math.floor(impressions * ctr);
+                    const spend = clicks * cpc;
+                    const conversionRate  = Math.random() * 0.3;
+                    const conversions = Math.floor(clicks * conversionRate);
+                    
 
-                data.push({
-                    platform: source,
-                    source,
-                    channel,
-                    campaignId: campaign,
-                    campaignName: campaign,
-                    date,
-                    impressions,
-                    clicks,
-                    spend,
-                    conversions
-                });
+                    data.push({
+                        platform: source,
+                        source,
+                        channel,
+                        campaignId: campaign,
+                        campaignName: campaign,
+                        date,
+                        impressions,
+                        clicks,
+                        spend,
+                        conversions
+                    });
+                }
             }
         }
     }
