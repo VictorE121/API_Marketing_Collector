@@ -151,9 +151,13 @@ node src/app.js
 
 🎥 Demo
 
+Overlay Image in PowerBI
+
 ![Overlay Image](assets/TCS_IMAG.png)
 
-![Youtube Video](https://img.youtube.com/vi/gsRtX8GhDaw/0.jpg)](https://www.youtube.com/watch?v=gsRtX8GhDaw)   
+Youtube video explaining about project
+
+[![Youtube Video](https://img.youtube.com/vi/gsRtX8GhDaw/0.jpg)](https://www.youtube.com/watch?v=gsRtX8GhDaw)   
 
 ---
 
