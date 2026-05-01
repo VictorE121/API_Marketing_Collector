@@ -6,8 +6,8 @@ services:
     container_name: marketing-data-collector
     restart: always
     environment:
-      POSTGRES_USER: vic
-      POSTGRES_PASSWORD: marketing0711
+      POSTGRES_USER: {USER}
+      POSTGRES_PASSWORD: {PASSOWORD}
       POSTGRES_DB: marketing_data
     ports:
       - "1107:5432"
